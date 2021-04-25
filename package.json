@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Projeto de desenvolvimento de API no ignite",
   "main": "index.js",
-  "repository": "https://github.com/elioenays/devquiz",
+  "repository": "https://github.com/elioenays/rentalx",
   "author": "Elioenay Silva",
   "license": "MIT",
   "devDependencies": {
