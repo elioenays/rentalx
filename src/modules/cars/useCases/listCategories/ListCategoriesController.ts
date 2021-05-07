@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
-import { CategoriesRepository } from "../../repositories/CategoriesRepository";
+import { CategoriesRepository } from "../../repositories/implementations/CategoriesRepository";
 import { ListCategoiresUseCase } from "./ListCategoiresUseCase";
-const categoriesRepository = new CategoriesRepository();
 
 class ListCategoriesController {
   constructor(private listCategoriesUseCase: ListCategoiresUseCase) {}
