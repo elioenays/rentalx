@@ -8,6 +8,7 @@ const categoriesRoutes = Router();
 const upload = multer({ dest: "./tmp" });
 
 categoriesRoutes.post("/", (request, response) => {
+  console.log("Reload");
   return createCategoryController.handle(request, response);
 });
 
