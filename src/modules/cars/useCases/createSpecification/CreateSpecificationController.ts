@@ -3,7 +3,7 @@ import { container } from "tsyringe";
 import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
 
 class CreateSpecificationController {
-  handle(request: Request, response: Response) {
+  async handle(request: Request, response: Response): Promise<Response> {
     const { name, description } = request.body;
 
     const createSpecificationUseCase = container.resolve(
@@ -12,7 +12,7 @@ class CreateSpecificationController {
 
     const specification = { name, description };
 
-    createSpecificationUseCase.execute(specification);
+    await createSpecificationUseCase.execute(specification);
 
     return response.status(201).json(specification);
   }
