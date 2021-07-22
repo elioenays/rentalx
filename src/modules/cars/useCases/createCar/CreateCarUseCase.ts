@@ -1,4 +1,6 @@
-import { injectable } from "tsyringe";
+import { inject, injectable } from "tsyringe";
+
+import ICarsRepository from "@modules/cars/repositories/ICarsRepository";
 
 interface IRequest {
   name: string;
@@ -12,6 +14,11 @@ interface IRequest {
 
 @injectable()
 export class CreateCarUseCase {
+  constructor(
+    @inject("CarsRepository")
+    private carsRepository: ICarsRepository
+  ) {}
+
   async execute({
     name,
     description,
@@ -20,5 +27,15 @@ export class CreateCarUseCase {
     fine_amount,
     brand,
     category_id,
-  }: IRequest): Promise<void> {}
+  }: IRequest): Promise<void> {
+    this.carsRepository.create({
+      name,
+      description,
+      daily_rate,
+      license_plate,
+      fine_amount,
+      brand,
+      category_id,
+    });
+  }
 }
