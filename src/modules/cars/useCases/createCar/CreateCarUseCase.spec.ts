@@ -22,8 +22,6 @@ describe("Create Car", () => {
       category_id: "123321",
     });
 
-    console.log(car);
-
     expect(car).toHaveProperty("id");
   });
 
@@ -59,8 +57,6 @@ describe("Create Car", () => {
       brand: "Fiat",
       category_id: "123321",
     });
-
-    console.log(car);
 
     expect(car.available).toBe(true);
   });
