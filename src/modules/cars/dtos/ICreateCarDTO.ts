@@ -1,4 +1,5 @@
 export default interface ICreateCarDTO {
+  id?: string;
   name: string;
   description: string;
   daily_rate: number;
