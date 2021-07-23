@@ -15,7 +15,7 @@ interface IRequest {
 }
 
 @injectable()
-export class CreateCarUseCase {
+export default class CreateCarUseCase {
   constructor(
     @inject("CarsRepository")
     private carsRepository: ICarsRepository
