@@ -1,7 +1,13 @@
 FROM node
-WORKDIR /usr/app
-COPY package.json ./
+
+WORKDIR /home/app
+
+COPY package.json /home/app
+COPY package-lock.json /home/app
+
 RUN npm install --force
-COPY . .
+
+COPY . /home/app
+
 EXPOSE 3333
 CMD ["npm","run","dev"]

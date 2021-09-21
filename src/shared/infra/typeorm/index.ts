@@ -5,7 +5,7 @@ export default async (host = "database"): Promise<Connection> => {
 
   return createConnection(
     Object.assign(defaultOptions, {
-      host: "localhost",
+      host: "172.26.0.3",
     })
   );
 };
