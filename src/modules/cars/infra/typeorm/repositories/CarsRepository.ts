@@ -1,14 +1,16 @@
-import { getRepository, Repository } from "typeorm";
-import Car from "../entities/Car";
-
 import ICreateCarDTO from "@modules/cars/dtos/ICreateCarDTO";
 import ICarsRepository from "@modules/cars/repositories/ICarsRepository";
+import { getRepository, Repository } from "typeorm";
+import Car from "../entities/Car";
 
 export default class CarsRepository implements ICarsRepository {
   private repository: Repository<Car>;
 
   constructor() {
     this.repository = getRepository(Car);
+  }
+  async findById(id: string): Promise<Car> {
+    return await this.repository.findOne(id);
   }
 
   async create({
@@ -19,6 +21,7 @@ export default class CarsRepository implements ICarsRepository {
     fine_amount,
     brand,
     category_id,
+    specifications,
   }: ICreateCarDTO): Promise<Car> {
     const car = this.repository.create({
       name,
@@ -28,6 +31,7 @@ export default class CarsRepository implements ICarsRepository {
       fine_amount,
       brand,
       category_id,
+      specifications,
     });
 
     await this.repository.save(car);
